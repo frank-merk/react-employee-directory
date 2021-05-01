@@ -22,6 +22,27 @@ class EmployeeDirectory extends Component {
             .catch(err => console.log(err));
     }
 
+    handleInputChange = event => {
+        // Getting the value and name of the input which triggered the change
+        const { name, value } = event.target;
+    
+        // Updating the input's state
+        this.setState({
+          [name]: value
+        });
+      };
+
+      // find way to sort users
+      handleSortOrder = (event) => {
+        event.prevent.default
+        fetch('https://jsonplaceholder.typicode.com/posts').then((res) => res.json())
+            .then((data) => {
+                data.sort((a, b) => a.userId - b.userId);
+                this.setState({data: data});
+
+    });
+      }
+
     // display results in a bootstrap table
     render() {
         return (
