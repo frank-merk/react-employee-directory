@@ -9,8 +9,9 @@ class EmployeeDirectory extends Component {
     state = {
         result: [],
         search: "",
+        order: ""
     };
-
+    // Use the api to get a set of random users
      renderEmployees = () => {
         API.employees()
             .then(res => this.setState({ result: res.data.results }))
@@ -21,7 +22,7 @@ class EmployeeDirectory extends Component {
         this.renderEmployees();
     }
 
-    // Use the api to get a set of random users
+    
    
 
     handleInputChange = event => {
@@ -35,15 +36,57 @@ class EmployeeDirectory extends Component {
       };
 
       // find way to sort users
-      handleSortOrder = (event) => {
-        event.preventDefault();
-        fetch('https://jsonplaceholder.typicode.com/posts').then((res) => res.json())
-            .then((data) => {
-                data.sort((a, b) => a.userId - b.userId);
-                this.setState({data: data});
 
-    });
-      }
+      // when a user clicks, we check the state order and flip it depending
+      handleSortOrder = event => {
+        event.preventDefault()
+
+        // setting up default setting to onMount as descending. When a user clicks it, we flip to ascending
+        if (`${this.state.order}` === "" || `${this.state.order}` === "descending") {
+
+            this.setState({
+                order: "ascending"
+            })
+
+            // compare the employees in result and sort them based on their names
+            const employeeSorter = this.state.result.sort((a, b) => {
+                let employeeA = a.name.last;
+                let employeeB = b.name.last;
+
+                if (employeeA < employeeB) {
+                    return -1
+                }
+
+                return 1;
+            });
+
+            this.setState({
+                result: employeeSorter
+            })
+        }
+
+        // now do the inverse, if the user flips back to descending order
+        else if (`${this.state.order}` === "ascending") {
+
+            this.setState({
+                order: "descending"
+            })
+
+            const employeeSorter = this.state.result.sort((a, b) => {
+                let employeeA = a.name.last;
+                let employeeB = b.name.last;
+
+                if (employeeA > employeeB) {
+                    return -1
+                }
+                return 1;
+            });
+
+            this.setState({
+                result: employeeSorter
+            })
+        }
+    }
 
     // display results in a bootstrap table
     render() {
@@ -53,7 +96,12 @@ class EmployeeDirectory extends Component {
                     <thead>
                         <tr>
                         <th scope="col">Thumbnail</th>
-                        <th scope="col">Name</th>
+                        <th scope="col"
+                        data-order={this.state.order}
+                        onClick={this.handleSortOrder}
+                        >
+                        
+                        Name</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Date of Birth</th>
