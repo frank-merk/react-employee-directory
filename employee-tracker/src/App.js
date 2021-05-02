@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./components/Nav";
+import Nav from "./components/Nav";
 import EmployeeDirectory from "./components/EmployeeDirectory";
 import "./App.css";
 
