@@ -1,5 +1,5 @@
 import React from "react";
-import FormatDate from "../../utils/formatDate";
+import formatDate from "../../utils/formatDate";
 
 function Employee(props) {
 return (
@@ -10,7 +10,7 @@ return (
             <td>{results.name.first} {results.name.last}</td>
             <td>{results.phone}</td>
             <td>{results.email}</td>
-            <td>{FormatDate(results.dob.date)}</td> 
+            <td>{formatDate(results.dob.date)}</td> 
         </tr>
         ))}
     </tbody>
