@@ -1,0 +1,17 @@
+.sorter {
+    background-color: #343a40!important;
+    color: white;
+    border-radius: 3px
+
+  }
+.sorter:hover{
+    opacity: 75%;
+}
+
+
+
+.table {
+  width: 75%;
+  margin: 0 auto;
+}
+

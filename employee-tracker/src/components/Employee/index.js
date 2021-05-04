@@ -4,7 +4,7 @@ import formatDate from "../../utils/formatDate";
 function Employee(props) {
 return (
     <tbody>
-        {props.result.filter(employee => employee.name.last.includes(props.search)).map(results => (
+        {props.result.map(results => (
         <tr key={results.login.uuid}>
             <td><img alt="thumbnail" src={results.picture.thumbnail}/></td>
             <td>{results.name.first} {results.name.last}</td>

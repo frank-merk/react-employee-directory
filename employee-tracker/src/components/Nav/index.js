@@ -9,7 +9,7 @@ function Nav(props) {
 
             <div className="navbar-collapse row" id="navbarNav">
 
-                <div>
+                {/* <div>
                     <form className="form-inline">
                         <input 
                             value={props.search}
@@ -18,7 +18,7 @@ function Nav(props) {
                             placeholder="Type Employee Last Name" 
                             aria-label="Search" />
                     </form>
-                </div>
+                </div> */}
             </div>
         </nav>
 

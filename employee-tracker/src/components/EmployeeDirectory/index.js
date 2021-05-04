@@ -3,6 +3,7 @@ import API from "../../utils/API";
 import Employee from "../Employee";
 import Search from "../Search";
 import './style.css';
+import EmployeeSearch from "../EmployeeSearch"
 
 
 class EmployeeDirectory extends Component {
@@ -92,25 +93,35 @@ class EmployeeDirectory extends Component {
     render() {
         return (
             <div>
+                <Search
+                    value={this.state.search}
+                    handleInputChange={this.handleInputChange}
+                />
                 <table class="table table-striped">
                     <thead>
                         <tr>
                         <th scope="col">Thumbnail</th>
                         <th scope="col"
+                        
                         data-order={this.state.order}
                         onClick={this.handleSortOrder}
                         >
                         
-                        Name</th>
+                        <span className = "sorter">Name (click to sort)</span></th>
+                        
                         <th scope="col">Phone</th>
                         <th scope="col">Email</th>
                         <th scope="col">Date of Birth</th>
                         </tr>
                     </thead>
+                    {!this.state.search ? (
                     <Employee
                             result={this.state.result}
-                            search={this.state.search}
-                        />
+                             />
+                    ) : (
+                            <EmployeeSearch result={this.state.result} 
+                            value = {this.state.search} />
+                    )}
                     </table>
             </div>
         )
