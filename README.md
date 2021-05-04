@@ -1,4 +1,4 @@
-# react-employee-directory
+# React Employee Directory
 An employee tracking system built with React
 
 [Live Demo](
