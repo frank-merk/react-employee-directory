@@ -1,7 +1,8 @@
 .sorter {
     background-color: #343a40!important;
     color: white;
-    border-radius: 3px
+    border-radius: 3px;
+    padding: 10px;
 
   }
 .sorter:hover{

@@ -6,7 +6,6 @@ import "./App.css";
 function App() {
     return (
         <div className="container">
-            <h1>Employee Tracker</h1>
             <Nav />
             <EmployeeDirectory />
         </div>
