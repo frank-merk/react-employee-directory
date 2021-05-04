@@ -6,11 +6,12 @@ function Search(props) {
         
         <div className="search">
             <form className="form-inline">
+                <label><strong>Type a name:</strong></label>
                 <input 
                 className="form-control"
                 name="search" 
                 type="text" 
-                placeholder="Search By Last Name" 
+                placeholder="'Dan Employeeberg,' e.g." 
                 value={props.value} 
                 onChange={props.handleInputChange}>
                 </input>

@@ -8,4 +8,15 @@ margin: auto;
     margin: auto;
     width: 50%;
     text-align: center;
+    
+}
+
+input {
+    width: 300px;
+}
+.form-control {
+    background-color: lightgray;
+}
+label {
+    padding: 2px;
 }
